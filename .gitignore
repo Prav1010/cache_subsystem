@@ -1,0 +1,15 @@
+sim/results/*
+!sim/results/cache_stats.csv
+!sim/results/hit_miss_analysis.txt
+sim/results/waveforms/*
+!sim/results/waveforms/waveforms.vcd
+tb/test_patterns/*_golden_stats.txt
+synth/gates/*
+synth/reports/*.log
+synth/reports/*.jou
+*.pb
+*.wdb
+xsim.dir/
+.Xil/
+__pycache__/
+*.pyc
