@@ -58,7 +58,9 @@ python hit_rate_vs_size.py
 python associativity_trade_offs.py
 ```
 
-Generates hit-rate-vs-configuration data (and plots, where applicable) into `analysis/results/`. See `docs/performance_analysis.md` for the written analysis.
+Generates hit-rate-vs-configuration CSV data into `analysis/results/`. Full write-up with data tables in `docs/performance_analysis.md`.
+
+**Headline finding**: `worst_case.txt` (constructed to conflict into a single set) produces a striking non-monotonic hit rate across associativity - 58.5% (1-way) -> 39.0% (2-way) -> **0.0% (4-way, exact thrash point)** -> 97.5% (8-way and above) - a clean demonstration that cache performance depends on the interaction between workload and configuration, not configuration size alone. See `docs/performance_analysis.md` Section 3-4 for the full explanation.
 
 ## Synthesis
 
