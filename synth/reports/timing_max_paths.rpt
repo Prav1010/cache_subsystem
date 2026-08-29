@@ -1,0 +1,386 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
+| Date         : Sat Aug 29 15:42:22 2026
+| Host         : Prav11 running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file ./reports/timing_max_paths.rpt
+| Design       : cache_controller
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.21 2018-02-08
+--------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[0]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[10]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[10]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[11]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[11]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[12]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[12]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[13]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[13]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[14]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[14]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[15]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[15]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[1]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[2]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_lru/age_reg[23][1][0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            wait_counter_reg[3]/CE
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.491ns  (logic 2.283ns (24.054%)  route 7.208ns (75.946%))
+  Logic Levels:           11  (FDPE=1 LUT5=2 LUT6=6 MUXF7=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDPE                         0.000     0.000 r  u_lru/age_reg[23][1][0]/C
+                         FDPE (Prop_fdpe_C_Q)         0.456     0.456 f  u_lru/age_reg[23][1][0]/Q
+                         net (fo=3, unplaced)         0.983     1.439    u_lru/age_reg[23][1]_55[0]
+                         LUT6 (Prop_lut6_I0_O)        0.295     1.734 f  u_lru/tag_fill_way[0]_i_131/O
+                         net (fo=1, unplaced)         0.000     1.734    u_lru/tag_fill_way[0]_i_131_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     1.979 f  u_lru/tag_fill_way_reg[0]_i_53/O
+                         net (fo=1, unplaced)         0.905     2.884    u_lru/tag_fill_way_reg[0]_i_53_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     3.182 f  u_lru/tag_fill_way[0]_i_19/O
+                         net (fo=2, unplaced)         1.122     4.304    u_lru/tag_fill_way[0]_i_19_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     4.428 f  u_lru/tag_fill_way[0]_i_12/O
+                         net (fo=2, unplaced)         0.913     5.341    u_lru/tag_fill_way[0]_i_12_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.465 f  u_lru/tag_fill_way[0]_i_6/O
+                         net (fo=1, unplaced)         0.902     6.367    u_lru/tag_fill_way[0]_i_6_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     6.491 r  u_lru/tag_fill_way[0]_i_3/O
+                         net (fo=7, unplaced)         0.484     6.975    u_lru/tag_fill_way_reg[1]_0
+                         LUT5 (Prop_lut5_I3_O)        0.124     7.099 r  u_lru/stat_writeback_pulse_i_6/O
+                         net (fo=3, unplaced)         0.920     8.019    u_lru/stat_writeback_pulse_i_6_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124     8.143 r  u_lru/wait_counter[15]_i_9/O
+                         net (fo=1, unplaced)         0.449     8.592    u_lru/wait_counter[15]_i_9_n_0
+                         LUT5 (Prop_lut5_I1_O)        0.124     8.716 r  u_lru/wait_counter[15]_i_4/O
+                         net (fo=1, unplaced)         0.000     8.716    u_tagarray/wait_counter_reg[4]
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.961 r  u_tagarray/wait_counter_reg[15]_i_1/O
+                         net (fo=16, unplaced)        0.530     9.491    u_tagarray_n_26
+                         FDCE                                         r  wait_counter_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+
+
+

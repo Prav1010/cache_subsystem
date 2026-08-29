@@ -29,3 +29,23 @@ Keeping LRU tracking as its own module with a clean `access_valid/access_set/acc
 ## 7. Why Exact LRU's Hardware Cost Wasn't a Blocker Here
 
 This is a portfolio/learning project, not an area-constrained production design - the goal is to demonstrate the trade-off is understood (see Section 1 and `docs/lru_replacement_algorithm.md`), not to pick the objectively "correct" answer for every real-world context. The synthesis area report (`docs/synthesis_results.md`, once populated) provides the real data to have an informed conversation about when this trade-off would tip the other way (e.g., at high associativity in an area-constrained embedded design).
+
+
+## 8. Synthesis Results: Real Resource Cost of Exact LRU at This Scale
+
+Synthesizing the default configuration (CACHE_SIZE_BYTES=4096, LINE_SIZE_BYTES=32, ASSOCIATIVITY=4) for an Artix-7 (xc7a35tcpg236-1) target produced:
+
+| Metric | Value |
+|--------|-------|
+| Slice LUTs | 16,831 / 20,800 (80.92%) |
+| Slice Registers | 36,158 / 41,600 (86.92%) |
+| Critical path delay | 9.491 ns (~105 MHz max frequency) |
+| Total on-chip power | 95.342 W (Vivado flags "Junction temp exceeded") |
+
+**This is a genuinely important finding, not just a formality.** At ~81% LUT and ~87% register utilization, this single cache instance is consuming the large majority of this small FPGA's total logic capacity - and Vivado's vector-less power estimate (95W) is far beyond what this device could realistically dissipate, triggering its junction-temperature warning. Two things are worth being explicit about:
+
+1. **Most of the area cost is the data array itself** (52,086 of 58,260 total cells, ~89%), not the control/LRU logic - 4KB of storage implemented as flip-flops (since this design doesn't target Block RAM inference at this per-line granularity) is inherently expensive compared to dedicated memory primitives. A production implementation would very likely target explicit Block RAM inference for the data array instead of the current flip-flop-based `reg` array, trading some access flexibility for dramatically better area/power - this is flagged here as a natural next optimization rather than implemented, to keep this project's RTL simple and easy to reason about alongside the golden-model verification.
+
+2. **The critical path runs through the LRU replacement logic** (`u_lru/age_reg` → tag/victim-way selection → `wait_counter`), not just the data path - confirming that exact LRU's cost (discussed in `docs/lru_replacement_algorithm.md`) is real and measurable in both area and timing, not just a theoretical trade-off. This is exactly the kind of concrete data that would inform a decision to move to pseudo-LRU in an area/power-constrained real design, as discussed in Section 4 of `docs/lru_replacement_algorithm.md`.
+
+**Takeaway**: this configuration, as synthesized, would not be a reasonable target for this specific small FPGA in a real deployment - it's presented here as honest data about the real cost of this design's choices (exact LRU, flip-flop-based storage) at this configuration, which is more informative for a portfolio than only showing a configuration that happens to fit comfortably.

@@ -69,7 +69,7 @@ cd synth
 vivado -mode batch -source cache_synth.tcl
 ```
 
-Produces timing, area, and power reports in `synth/reports/`.
+Produces timing, area, and power reports in `synth/reports/`. Real synthesis of the default configuration (4KB, 4-way, Artix-7 xc7a35tcpg236-1) shows **0 errors, 0 critical warnings**, 80.92% LUT utilization, 86.92% register utilization, a 9.491ns critical path (running through the LRU replacement logic), and 95.342W estimated power - Vivado flags this configuration as exceeding practical junction temperature for this device. See `docs/design_choices.md` Section 8 for the full discussion of what this data reveals about the real cost of exact LRU and flip-flop-based storage at this scale.
 
 ## Repository Structure
 
