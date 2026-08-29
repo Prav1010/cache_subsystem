@@ -19,3 +19,5 @@ xvlog.log
 xelab.log
 __pycache__/
 *.pyc
+synth/vivado.log
+synth/vivado.jou
