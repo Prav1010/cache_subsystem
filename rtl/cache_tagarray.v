@@ -56,13 +56,18 @@ module cache_tagarray #(
                     tag_mem[s][w]   <= {TAG_BITS{1'b0}};
                 end
             end
-        end else begin
+                    end else begin
             if (fill_en) begin
                 tag_mem[set_idx][fill_way]   <= fill_tag;
                 valid_mem[set_idx][fill_way] <= 1'b1;
-                dirty_mem[set_idx][fill_way] <= 1'b0; // freshly filled line starts clean
+                // Dirty defaults to clean on fill, UNLESS this same cycle also
+                // requests marking it dirty (write-miss fill case) - checked
+                // explicitly here rather than relying on statement order between
+                // this block and the set_dirty_en block below, since both target
+                // the same dirty_mem location when a write-miss fill happens.
+                dirty_mem[set_idx][fill_way] <= (set_dirty_en && (set_dirty_way == fill_way)) ? 1'b1 : 1'b0;
             end
-            if (set_dirty_en) begin
+            if (set_dirty_en && !(fill_en && (set_dirty_way == fill_way))) begin
                 dirty_mem[set_idx][set_dirty_way] <= 1'b1;
             end
         end

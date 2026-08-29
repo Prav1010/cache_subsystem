@@ -20,7 +20,7 @@ TRACES=("sequential_access" "random_access" "working_set" "worst_case")
 
 echo "=== Step 2: Computing golden model stats for each trace ==="
 cd ../tb
-python3 - <<'PYEOF'
+python - <<'PYEOF'
 import sys
 sys.path.insert(0, ".")
 from cache_model_golden import GoldenCache
@@ -52,29 +52,28 @@ for trace_name in traces:
 PYEOF
 cd ../sim
 
-echo "=== Step 3: Compiling RTL ==="
-cd results
-xvlog --sv ../../rtl/cache_config_pkg.sv
-xvlog --sv ../../rtl/cache_interface.sv
-xvlog --sv ../../rtl/cache_lru.v
-xvlog --sv ../../rtl/cache_tagarray.v
-xvlog --sv ../../rtl/cache_dataarray.v
-xvlog --sv ../../rtl/cache_controller.v
-xvlog --sv ../../tb/cache_tb.sv
-xelab cache_tb -s cache_tb_sim
-cd ..
-
-echo "=== Step 4: Running RTL simulation for each trace ==="
+echo "=== Step 3/4: Compiling and running RTL for each trace ==="
 echo "trace,accesses,hits,misses,writebacks,hit_rate,result" > results/cache_stats.csv
 > results/hit_miss_analysis.txt
 
 for trace in "${TRACES[@]}"; do
     echo "--- Trace: $trace ---"
+
+    cat > ../tb/trace_select.svh <<EOF
+parameter TRACE_FILE  = "../../tb/test_patterns/${trace}.txt";
+parameter GOLDEN_FILE = "../../tb/test_patterns/${trace}_golden_stats.txt";
+EOF
+
     cd results
-    xsim cache_tb_sim -runall \
-        -testplusarg "TRACE=../../tb/test_patterns/${trace}.txt" \
-        -testplusarg "GOLDEN=../../tb/test_patterns/${trace}_golden_stats.txt" \
-        > "${trace}_sim_log.txt" 2>&1
+    xvlog --sv ../../rtl/cache_config_pkg.sv
+    xvlog --sv ../../rtl/cache_interface.sv
+    xvlog --sv ../../rtl/cache_lru.v
+    xvlog --sv ../../rtl/cache_tagarray.v
+    xvlog --sv ../../rtl/cache_dataarray.v
+    xvlog --sv ../../rtl/cache_controller.v
+    xvlog --sv -i ../../tb ../../tb/cache_tb.sv
+    xelab cache_tb -s cache_tb_sim > "${trace}_elab_log.txt" 2>&1
+    xsim cache_tb_sim -runall > "${trace}_sim_log.txt" 2>&1
     cd ..
 
     cat "results/${trace}_sim_log.txt" >> results/hit_miss_analysis.txt
@@ -82,6 +81,9 @@ for trace in "${TRACES[@]}"; do
 
     grep "RTL STATS\|RESULT" "results/${trace}_sim_log.txt"
 done
+
+echo "=== Simulation complete ==="
+echo "Per-trace logs and combined analysis in sim/results/"
 
 echo "=== Simulation complete ==="
 echo "Per-trace logs and combined analysis in sim/results/"

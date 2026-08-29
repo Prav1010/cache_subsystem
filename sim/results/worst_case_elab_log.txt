@@ -1,0 +1,16 @@
+Vivado Simulator 2018.1
+Copyright 1986-1999, 2001-2017 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/xelab.exe cache_tb -s cache_tb_sim 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.cache_tagarray(TAG_BITS=22)
+Compiling module work.cache_lru_default
+Compiling module work.cache_dataarray
+Compiling module work.cache_controller(TAG_BITS=22,WRI...
+Compiling module work.cache_tb
+Compiling package work.cache_config_pkg
+Built simulation snapshot cache_tb_sim

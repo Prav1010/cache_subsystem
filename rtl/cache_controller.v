@@ -195,9 +195,6 @@ module cache_controller #(
                                     tag_set_dirty_en  <= 1'b1;
                                     tag_set_dirty_way <= tag_hit_way;
                                 end
-                                // write-through mode: in a full system this would also
-                                // push the write to main memory here; not modeled in
-                                // this project (see docs/cache_coherency_notes.md)
                                 resp_rdata <= 8'd0; // writes don't return data
                             end else begin
                                 resp_rdata <= read_line[req_offset*8 +: 8];
@@ -218,7 +215,6 @@ module cache_controller #(
                 S_MISS_WAIT: begin
                     busy <= 1'b1;
                     if (wait_counter == MISS_PENALTY_CYCLES - 1) begin
-                        // Decide whether the victim line needs a write-back
                         if (WRITE_BACK && evict_valid && evict_dirty) begin
                             stat_writeback_pulse <= 1'b1;
                             wait_counter          <= 16'd0;
@@ -257,16 +253,25 @@ module cache_controller #(
                     lru_access_valid <= 1'b1;
                     lru_access_way   <= victim_way;
 
-                    // Respond now that the line is installed. If the
-                    // original request was a write, apply it on top of the
-                    // freshly filled line next cycle isn't needed here since
-                    // we respond with hit=1 to indicate the miss is resolved;
-                    // the actual byte write for a write-miss is applied here
-                    // directly to keep the response cycle-accurate.
                     resp_valid <= 1'b1;
                     resp_hit   <= 1'b0; // this response corresponds to a request that missed
+
                     if (latched_is_write) begin
                         resp_rdata <= 8'd0;
+                        if (WRITE_BACK) begin
+                            // The fill above (tag_fill_en) sets dirty=0 by default
+                            // for a fresh fill; since this is a write-miss, we also
+                            // assert set_dirty_en this same cycle targeting the same
+                            // way, so the freshly-filled line ends up dirty=1. See
+                            // rtl/cache_tagarray.v for how these two simultaneous
+                            // requests to the same dirty_mem location are resolved
+                            // explicitly (not by assignment-order reliance).
+                            tag_set_dirty_en  <= 1'b1;
+                            tag_set_dirty_way <= victim_way;
+                        end
+                        data_byte_write_en <= 1'b1;
+                        data_byte_offset   <= latched_offset;
+                        data_write_byte    <= latched_wdata;
                     end else begin
                         resp_rdata <= 8'd0; // freshly filled line's modeled content (zero-filled)
                     end

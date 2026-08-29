@@ -1,0 +1,291 @@
+$date
+   Sat Aug 29 15:21:19 2026
+$end
+$version
+  2018.1
+$end
+$timescale
+  1ps
+$end
+$scope module cache_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst_n $end
+$var reg 1 # req_valid $end
+$var reg 1 $ req_is_write $end
+$var reg 32 % req_addr [31:0] $end
+$var reg 8 & req_wdata [7:0] $end
+$var wire 1 ' resp_valid $end
+$var wire 1 ( resp_hit $end
+$var wire 8 ) resp_rdata [7:0] $end
+$var wire 1 * busy $end
+$var wire 1 + stat_hit_pulse $end
+$var wire 1 , stat_miss_pulse $end
+$var wire 1 - stat_writeback_pulse $end
+$var integer 32 . rtl_hits $end
+$var integer 32 / rtl_misses $end
+$var integer 32 0 rtl_writebacks $end
+$var integer 32 1 rtl_accesses $end
+$var integer 32 2 file_handle $end
+$var integer 32 3 scan_count $end
+$var integer 32 4 file_addr $end
+$var integer 32 5 file_is_write $end
+$var integer 32 6 file_wbyte $end
+$var integer 32 7 golden_hits $end
+$var integer 32 8 golden_misses $end
+$var integer 32 9 golden_writebacks $end
+$var integer 32 : golden_accesses $end
+$var integer 32 ; stats_file_handle $end
+$var parameter 32 < ADDR_WIDTH [31:0] $end
+$var parameter 296 = TRACE_FILE [295:0] $end
+$var parameter 400 > GOLDEN_FILE [399:0] $end
+$scope module dut $end
+$var wire 1 ? clk $end
+$var wire 1 @ rst_n $end
+$var wire 1 A req_valid $end
+$var wire 1 B req_is_write $end
+$var wire 32 C req_addr [31:0] $end
+$var wire 8 D req_wdata [7:0] $end
+$var reg 1 E resp_valid $end
+$var reg 1 F resp_hit $end
+$var reg 8 G resp_rdata [7:0] $end
+$var reg 1 H busy $end
+$var reg 1 I stat_hit_pulse $end
+$var reg 1 J stat_miss_pulse $end
+$var reg 1 K stat_writeback_pulse $end
+$var reg 3 L state [2:0] $end
+$var reg 16 M wait_counter [15:0] $end
+$var reg 32 N latched_addr [31:0] $end
+$var reg 1 O latched_is_write $end
+$var reg 8 P latched_wdata [7:0] $end
+$var wire 22 Q req_tag [21:0] $end
+$var wire 5 R req_index [4:0] $end
+$var wire 5 S req_offset [4:0] $end
+$var wire 22 T latched_tag [21:0] $end
+$var wire 5 U latched_index [4:0] $end
+$var wire 5 V latched_offset [4:0] $end
+$var wire 1 W tag_hit $end
+$var wire 2 X tag_hit_way [1:0] $end
+$var reg 1 Y tag_fill_en $end
+$var reg 2 Z tag_fill_way [1:0] $end
+$var reg 22 [ tag_fill_tag [21:0] $end
+$var reg 1 \ tag_set_dirty_en $end
+$var reg 2 ] tag_set_dirty_way [1:0] $end
+$var wire 2 ^ victim_way [1:0] $end
+$var wire 22 _ evict_tag [21:0] $end
+$var wire 1 ` evict_valid $end
+$var wire 1 a evict_dirty $end
+$var wire 5 b active_index [4:0] $end
+$var reg 1 c lru_access_valid $end
+$var reg 2 d lru_access_way [1:0] $end
+$var wire 256 e read_line [255:0] $end
+$var reg 1 f data_fill_en $end
+$var reg 256 g data_fill_value [255:0] $end
+$var reg 1 h data_byte_write_en $end
+$var reg 5 i data_byte_offset [4:0] $end
+$var reg 8 j data_write_byte [7:0] $end
+$var reg 2 k data_way_idx [1:0] $end
+$var parameter 32 l ADDR_WIDTH [31:0] $end
+$var parameter 32 m NUM_SETS [31:0] $end
+$var parameter 32 n ASSOCIATIVITY [31:0] $end
+$var parameter 32 o LINE_SIZE_BYTES [31:0] $end
+$var parameter 32 p TAG_BITS [31:0] $end
+$var parameter 32 q INDEX_BITS [31:0] $end
+$var parameter 32 r OFFSET_BITS [31:0] $end
+$var parameter 32 s WAY_BITS [31:0] $end
+$var parameter 0 t WRITE_BACK $end
+$var parameter 32 u MISS_PENALTY_CYCLES [31:0] $end
+$var parameter 32 v WRITEBACK_PENALTY_CYCLES [31:0] $end
+$var parameter 3 w S_IDLE [2:0] $end
+$var parameter 3 x S_MISS_WAIT [2:0] $end
+$var parameter 3 y S_WRITEBACK_WAIT [2:0] $end
+$var parameter 3 z S_FILL [2:0] $end
+$scope module u_tagarray $end
+$var wire 1 ? clk $end
+$var wire 1 @ rst_n $end
+$var wire 5 b set_idx [4:0] $end
+$var wire 22 { tag_in [21:0] $end
+$var wire 1 W hit $end
+$var wire 2 X hit_way [1:0] $end
+$var wire 1 | fill_en $end
+$var wire 2 } fill_way [1:0] $end
+$var wire 22 ~ fill_tag [21:0] $end
+$var wire 1 !! set_dirty_en $end
+$var wire 2 "! set_dirty_way [1:0] $end
+$var wire 5 U evict_set [4:0] $end
+$var wire 2 ^ evict_way [1:0] $end
+$var wire 22 _ evict_tag [21:0] $end
+$var wire 1 ` evict_valid $end
+$var wire 1 a evict_dirty $end
+$var integer 32 #! s $end
+$var integer 32 $! w $end
+$var reg 1 %! hit_comb $end
+$var reg 2 &! hit_way_comb [1:0] $end
+$var parameter 32 '! NUM_SETS [31:0] $end
+$var parameter 32 (! ASSOCIATIVITY [31:0] $end
+$var parameter 32 )! TAG_BITS [31:0] $end
+$var parameter 32 *! WAY_BITS [31:0] $end
+$upscope $end
+$scope module u_lru $end
+$var wire 1 ? clk $end
+$var wire 1 @ rst_n $end
+$var wire 1 +! access_valid $end
+$var wire 5 b access_set [4:0] $end
+$var wire 2 ,! access_way [1:0] $end
+$var wire 5 U victim_set [4:0] $end
+$var wire 2 ^ victim_way [1:0] $end
+$var integer 32 -! s $end
+$var integer 32 .! w $end
+$var reg 2 /! victim_way_comb [1:0] $end
+$var reg 3 0! max_age_comb [2:0] $end
+$var parameter 32 1! NUM_SETS [31:0] $end
+$var parameter 32 2! ASSOCIATIVITY [31:0] $end
+$var parameter 32 3! WAY_BITS [31:0] $end
+$var parameter 32 4! AGE_BITS [31:0] $end
+$upscope $end
+$scope module u_dataarray $end
+$var wire 1 ? clk $end
+$var wire 5 b set_idx [4:0] $end
+$var wire 2 5! way_idx [1:0] $end
+$var wire 256 e read_line [255:0] $end
+$var wire 1 6! fill_en $end
+$var wire 256 7! fill_data [255:0] $end
+$var wire 1 8! byte_write_en $end
+$var wire 5 9! byte_offset [4:0] $end
+$var wire 8 :! write_byte_data [7:0] $end
+$var parameter 32 ;! NUM_SETS [31:0] $end
+$var parameter 32 <! ASSOCIATIVITY [31:0] $end
+$var parameter 32 =! LINE_SIZE_BYTES [31:0] $end
+$var parameter 32 >! WAY_BITS [31:0] $end
+$upscope $end
+$upscope $end
+$scope task apply_access $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!
+0!!
+1"
+bx "!
+0#
+b100000 #!
+0$
+b100 $!
+b1000000000000 %
+1%!
+b0 &
+b0 &!
+0'
+b100000 '!
+0(
+b100 (!
+b0 )
+b10110 )!
+0*
+b10 *!
+0+
+0+!
+0,
+b0 ,!
+0-
+b100000 -!
+b0 .
+b100 .!
+b11001000 /
+b11 /!
+b0 0
+b11 0!
+b11001000 1
+b100000 1!
+b11111111111111111011000111100000 2
+b100 2!
+b100 3
+b10 3!
+b1000000000000 4
+b11 4!
+b0 5
+b0 5!
+bx 6
+06!
+b0 7
+b0 7!
+b11001000 8
+08!
+b0 9
+bx 9!
+b11001000 :
+bx :!
+b11111111111111111011000111100000 ;
+b100000 ;!
+b100000 <
+b100 <!
+b101110001011100010111100101110001011100010111101110100011000100010111101110100011001010111001101110100010111110111000001100001011101000111010001100101011100100110111001110011001011110111011101101111011100100111001101110100010111110110001101100001011100110110010100101110011101000111100001110100 =
+b100000 =!
+b10111000101110001011110010111000101110001011110111010001100010001011110111010001100101011100110111010001011111011100000110000101110100011101000110010101110010011011100111001100101111011101110110111101110010011100110111010001011111011000110110000101110011011001010101111101100111011011110110110001100100011001010110111001011111011100110111010001100001011101000111001100101110011101000111100001110100 >
+b10 >!
+1?
+1@
+0A
+0B
+b1000000000000 C
+b0 D
+0E
+0F
+b0 G
+0H
+0I
+0J
+0K
+b0 L
+b10011 M
+b1000000000000 N
+0O
+b0 P
+b100 Q
+b0 R
+b0 S
+b100 T
+b0 U
+b0 V
+1W
+b0 X
+0Y
+b0 Z
+b100 [
+0\
+bx ]
+b11 ^
+b1 _
+1`
+0a
+b0 b
+0c
+b0 d
+b0 e
+0f
+b0 g
+0h
+bx i
+bx j
+b0 k
+b100000 l
+b100000 m
+b100 n
+b100000 o
+b10110 p
+b101 q
+b101 r
+b10 s
+1t
+b10100 u
+b1010 v
+b0 w
+b1 x
+b10 y
+b11 z
+b100 {
+0|
+b0 }
+b100 ~
+$end

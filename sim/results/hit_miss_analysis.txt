@@ -1,0 +1,84 @@
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cache_tb_sim/xsim_script.tcl
+# xsim {cache_tb_sim} -autoloadwcfg -runall
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+run -all
+=== Running trace: ../../tb/test_patterns/sequential_access.txt ===
+----------------------------------------
+RTL STATS: accesses=200 hits=193 misses=7 writebacks=0
+GOLDEN STATS: accesses=200 hits=193 misses=7 writebacks=0
+RESULT: PASS - RTL stats match golden model exactly
+----------------------------------------
+$finish called at time : 14920 ns : File "C:/Users/prave/cache_subsystem/tb/cache_tb.sv" Line 176
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 15:20:27 2026...
+
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cache_tb_sim/xsim_script.tcl
+# xsim {cache_tb_sim} -autoloadwcfg -runall
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+run -all
+=== Running trace: ../../tb/test_patterns/random_access.txt ===
+----------------------------------------
+RTL STATS: accesses=200 hits=11 misses=189 writebacks=18
+GOLDEN STATS: accesses=200 hits=11 misses=189 writebacks=18
+RESULT: PASS - RTL stats match golden model exactly
+----------------------------------------
+$finish called at time : 91320 ns : File "C:/Users/prave/cache_subsystem/tb/cache_tb.sv" Line 176
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 15:20:44 2026...
+
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cache_tb_sim/xsim_script.tcl
+# xsim {cache_tb_sim} -autoloadwcfg -runall
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+run -all
+=== Running trace: ../../tb/test_patterns/working_set.txt ===
+----------------------------------------
+RTL STATS: accesses=200 hits=184 misses=16 writebacks=0
+GOLDEN STATS: accesses=200 hits=184 misses=16 writebacks=0
+RESULT: PASS - RTL stats match golden model exactly
+----------------------------------------
+$finish called at time : 18520 ns : File "C:/Users/prave/cache_subsystem/tb/cache_tb.sv" Line 176
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 15:21:01 2026...
+
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cache_tb_sim/xsim_script.tcl
+# xsim {cache_tb_sim} -autoloadwcfg -runall
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+run -all
+=== Running trace: ../../tb/test_patterns/worst_case.txt ===
+----------------------------------------
+RTL STATS: accesses=200 hits=0 misses=200 writebacks=0
+GOLDEN STATS: accesses=200 hits=0 misses=200 writebacks=0
+RESULT: PASS - RTL stats match golden model exactly
+----------------------------------------
+$finish called at time : 92120 ns : File "C:/Users/prave/cache_subsystem/tb/cache_tb.sv" Line 176
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Aug 29 15:21:19 2026...
+

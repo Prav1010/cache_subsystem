@@ -11,12 +11,17 @@
 // written to a companion "<trace>_golden_stats.txt" file by
 // sim/run_full_sim.sh before this simulation runs) - this checks the
 // RTL's cache behavior against golden truth, not just that "it ran".
+//
+// TRACE_FILE / GOLDEN_FILE are elaboration-time parameters, overridden
+// per-trace via `xelab -generic_top` in sim/run_full_sim.sh (chosen
+// over runtime plusargs after this xsim version proved unreliable at
+// parsing -testplusarg from the command line).
 module cache_tb;
 
     import cache_config_pkg::*;
 
-    parameter ADDR_WIDTH = 32;
-
+        parameter ADDR_WIDTH = 32;
+    `include "trace_select.svh"
     reg clk;
     reg rst_n;
 
@@ -95,7 +100,6 @@ module cache_tb;
             req_wdata    = wdata;
             @(negedge clk);
             req_valid = 1'b0;
-            // Wait for the response (immediate on hit, delayed on miss)
             wait (resp_valid);
             @(negedge clk);
         end
@@ -105,9 +109,6 @@ module cache_tb;
     integer file_handle;
     integer scan_count;
     integer file_addr, file_is_write, file_wbyte;
-
-    string trace_file;
-    string golden_stats_file;
 
     integer golden_hits, golden_misses, golden_writebacks, golden_accesses;
     integer stats_file_handle;
@@ -125,18 +126,11 @@ module cache_tb;
         rst_n = 1;
         #20;
 
-        // Trace file selectable via plusarg; defaults to sequential_access.txt
-        if (!$value$plusargs("TRACE=%s", trace_file))
-            trace_file = "../../tb/test_patterns/sequential_access.txt";
+        $display("=== Running trace: %s ===", TRACE_FILE);
 
-        if (!$value$plusargs("GOLDEN=%s", golden_stats_file))
-            golden_stats_file = "../../tb/test_patterns/sequential_access_golden_stats.txt";
-
-        $display("=== Running trace: %s ===", trace_file);
-
-        file_handle = $fopen(trace_file, "r");
+        file_handle = $fopen(TRACE_FILE, "r");
         if (file_handle == 0) begin
-            $display("ERROR: could not open trace file %s", trace_file);
+            $display("ERROR: could not open trace file %s", TRACE_FILE);
             $finish;
         end
 
@@ -158,10 +152,9 @@ module cache_tb;
         $display("RTL STATS: accesses=%0d hits=%0d misses=%0d writebacks=%0d",
                    rtl_accesses, rtl_hits, rtl_misses, rtl_writebacks);
 
-        // Compare against golden model stats
-        stats_file_handle = $fopen(golden_stats_file, "r");
+        stats_file_handle = $fopen(GOLDEN_FILE, "r");
         if (stats_file_handle == 0) begin
-            $display("WARNING: could not open golden stats file %s - skipping comparison", golden_stats_file);
+            $display("WARNING: could not open golden stats file %s - skipping comparison", GOLDEN_FILE);
         end else begin
             scan_count = $fscanf(stats_file_handle, "%d %d %d %d",
                                    golden_accesses, golden_hits, golden_misses, golden_writebacks);
