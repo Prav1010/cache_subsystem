@@ -79,37 +79,39 @@ Produces timing, area, and power reports in `synth/reports/`. Real synthesis of 
 
 ## Repository Structure
 
+```
 cache_subsystem/
 ├── rtl/
-│ ├── cache_controller.v # Top-level FSM
-│ ├── cache_tagarray.v # Tag/valid/dirty storage, hit detection
-│ ├── cache_dataarray.v # Line data storage
-│ ├── cache_lru.v # Exact LRU replacement
-│ ├── cache_config_pkg.sv # Configuration parameters
-│ └── cache_interface.sv # Request/response type definitions
+│   ├── cache_controller.v      # Top-level FSM
+│   ├── cache_tagarray.v         # Tag/valid/dirty storage, hit detection
+│   ├── cache_dataarray.v        # Line data storage
+│   ├── cache_lru.v              # Exact LRU replacement
+│   ├── cache_config_pkg.sv      # Configuration parameters
+│   └── cache_interface.sv       # Request/response type definitions
 ├── tb/
-│ ├── cache_tb.sv # Main testbench
-│ ├── cache_model_golden.py # Independent Python reference model
-│ ├── trace_generator.py # Workload trace generator
-│ └── test_patterns/ # Generated trace files
+│   ├── cache_tb.sv               # Main testbench
+│   ├── cache_model_golden.py     # Independent Python reference model
+│   ├── trace_generator.py        # Workload trace generator
+│   └── test_patterns/            # Generated trace files
 ├── sim/
-│ ├── run_full_sim.sh
-│ ├── results/
-│ └── analysis/
+│   ├── run_full_sim.sh
+│   ├── results/
+│   └── analysis/
 ├── synth/
-│ ├── cache_synth.tcl
-│ ├── reports/
-│ └── gates/
+│   ├── cache_synth.tcl
+│   ├── reports/
+│   └── gates/
 ├── docs/
-│ ├── cache_specification.md
-│ ├── lru_replacement_algorithm.md
-│ ├── cache_coherency_notes.md
-│ ├── performance_analysis.md
-│ └── design_choices.md
+│   ├── cache_specification.md
+│   ├── lru_replacement_algorithm.md
+│   ├── cache_coherency_notes.md
+│   ├── performance_analysis.md
+│   └── design_choices.md
 ├── analysis/
-│ ├── hit_rate_vs_size.py
-│ ├── associativity_trade_offs.py
-│ └── results/
+│   ├── hit_rate_vs_size.py
+│   ├── associativity_trade_offs.py
+│   └── results/
 ├── presentation/
-│ └── cache_design_overview.pptx
+│   └── cache_design_overview.pptx
 └── README.md
+```
