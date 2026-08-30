@@ -36,6 +36,12 @@ See `docs/cache_specification.md` for the full interface and behavior spec, `doc
 
 Each trace is run through both the golden model and the RTL testbench (`tb/cache_tb.sv`); the RTL's observed hit/miss/writeback statistics are checked against the golden model's independently-computed expected statistics.
 
+## Example Waveform
+
+![Cache subsystem waveform](docs/cache_waveform.png)
+
+*Captured in Vivado's simulator, running the `worst_case` trace: `req_addr` cycles through addresses that all map to the same set (0x00000000, 0x00000400, 0x00000800, ...), `busy` stays asserted through each miss-penalty stall, and `stat_miss_pulse` fires on every single access while `stat_hit_pulse` never fires - a direct visual confirmation of the trace's designed thrashing behavior (see `docs/performance_analysis.md` for the full analysis).*
+
 ## How to Run
 
 ```bash
